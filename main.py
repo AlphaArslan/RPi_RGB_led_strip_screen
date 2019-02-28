@@ -96,3 +96,5 @@ if __name__ == '__main__':
 
     # displaying image
     strip.show()
+
+    exit()
