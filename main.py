@@ -46,7 +46,6 @@ def draw_pixel(x, y, color):
     # access the led
     i = get_pixel_number(x, y)
     strip.setPixelColor(i, color)
-    strip.show()
 
 def get_pixel_number(x,y):
     """maps x y values to the sequence number of pixel
@@ -90,7 +89,10 @@ if __name__ == '__main__':
     rgb_im = im.convert('RGB')
 
     # drawing pixels
-    for x in range(0,WIDTH):
-        for y in range(0, HEIGHT):
+    for y in range(0, HEIGHT):
+        for x in range(0,WIDTH):
             r ,g ,b = rgb_im.getpixel((x,y))
             draw_pixel(x, y, Color(r, g, b))
+
+    # displaying image
+    strip.show()
