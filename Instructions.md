@@ -22,5 +22,5 @@
 
 # display images
     1- go to the project folder.
-    2- Terminal : " sudo python3 main.py <path/to/image>"
-    3- Example  : " sudo python3 main.py test/red.jpg "
+    2- Terminal : " sudo python3 main.py -i <path/to/image>"
+    3- Example  : " sudo python3 main.py -i test/red.jpg "
