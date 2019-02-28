@@ -1,7 +1,6 @@
 # primary system packages
-Execute these commands in Terminal:
-    1- " sudo apt-get update "
-    2- " sudo apt-get install gcc make build-essential python3-dev git scons swig "
+    1- Terminal     : " sudo apt-get update "
+    2- Terminal     : " sudo apt-get install gcc make build-essential python3-dev git scons swig "
 
 # disable audio output
     1.1- Terminal     : " sudo nano /etc/modprobe.d/snd-blacklist.conf "
