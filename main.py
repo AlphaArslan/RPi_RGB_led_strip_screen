@@ -3,17 +3,24 @@ from PIL import Image
 from rpi_ws281x import *
 import os
 import time
+import argparse
 
-#################### Global Variables
+#################### Setup
 # control panel
 DEBUG = True
 INFO = True
 WIDTH = 30
 HEIGHT = 100
 
+# arguments handling
+ap = argparse.ArgumentParser()
+ap.add_argument("-i", "--image", required=True,
+                help="path to Image to be displayed")
+args = vars(ap.parse_args())
+
 # system related variables
 PWD = os.path.dirname(os.path.realpath(__file__))       #returns path to project folder
-IMAGE_PATH = PWD + "/var/image.jpg"
+IMAGE_PATH = PWD + args["image"]
 
 # LED strip configuration
 LED_COUNT      = WIDTH*HEIGHT       # Number of LED pixels.
