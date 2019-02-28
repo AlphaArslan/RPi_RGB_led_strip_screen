@@ -5,6 +5,8 @@ import os
 import time
 import argparse
 
+
+
 #################### Setup
 # control panel
 DEBUG = True
@@ -34,6 +36,8 @@ LED_CHANNEL    = 0                  # set to '1' for GPIOs 13, 19, 41, 45 or 53
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
 strip.begin()
 
+
+
 #################### Functions
 def draw_pixel(x, y, r, g, b):
     """Accessing a specific led , defined by x , y
@@ -47,8 +51,13 @@ def draw_pixel(x, y, r, g, b):
 def get_pixel_number(x,y):
     """maps x y values to the sequence number of pixel
     """
-    i = 5
+    if x%2 is 0:
+        i = y * WIDTH + x
+    else:
+        i = y * WIDTH - x
     return i
+
+
 
 #################### Main
 if __name__ == '__main__':
