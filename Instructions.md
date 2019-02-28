@@ -19,3 +19,8 @@
 
     2- rpi_ws281x library, used for handling LEDs:
           2- Terminal : " sudo pip3 install rpi_ws281x "
+
+# display images
+    1- go to the project folder.
+    2- Terminal : " sudo python3 main.py <path/to/image>"
+    3- Example  : " sudo python3 main.py test/red.jpg "
