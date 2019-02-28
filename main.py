@@ -22,7 +22,7 @@ args = vars(ap.parse_args())
 
 # system related variables
 PWD = os.path.dirname(os.path.realpath(__file__))       #returns path to project folder
-IMAGE_PATH = PWD + args["image"]
+IMAGE_PATH = PWD + "/" + args["image"]
 
 # LED strip configuration
 LED_COUNT      = WIDTH*HEIGHT       # Number of LED pixels.
@@ -39,13 +39,13 @@ strip.begin()
 
 
 #################### Functions
-def draw_pixel(x, y, r, g, b):
+def draw_pixel(x, y, color):
     """Accessing a specific led , defined by x , y
     and assigning the (r,g,b) values to this led
     """
     # access the led
     i = get_pixel_number(x, y)
-    strip.setPixelColor(i, (r,g,b))
+    strip.setPixelColor(i, color)
     strip.show()
 
 def get_pixel_number(x,y):
@@ -93,4 +93,4 @@ if __name__ == '__main__':
     for x in range(0,WIDTH):
         for y in range(0, HEIGHT):
             r ,g ,b = rgb_im.getpixel((x,y))
-            draw_pixel(x, y, r, g, b)
+            draw_pixel(x, y, Color(r, g, b))
