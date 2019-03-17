@@ -10,8 +10,8 @@ import Adafruit_GPIO.SPI as SPI
 # control panel
 DEBUG = True
 INFO = True
-WIDTH = 30
-HEIGHT = 100
+WIDTH = 32
+HEIGHT = 54
 
 # arguments handling
 ap = argparse.ArgumentParser()
@@ -24,7 +24,7 @@ PWD = os.path.dirname(os.path.realpath(__file__))       #returns path to project
 IMAGE_PATH = PWD + "/" + args["image"]
 
 # LED strip configuration
-PIXEL_COUNT = WIDTH * HEIGHT
+PIXEL_COUNT = WIDTH * HEIGHT + WIDTH 
 PIXEL_CLOCK = 18
 PIXEL_DOUT  = 23
 pixels = Adafruit_WS2801.WS2801Pixels(PIXEL_COUNT, clk=PIXEL_CLOCK, do=PIXEL_DOUT)
