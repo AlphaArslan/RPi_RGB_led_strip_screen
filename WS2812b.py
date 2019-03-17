@@ -1,17 +1,18 @@
 #################### Import
 from PIL import Image
+from rpi_ws281x import *
 import os
 import time
 import argparse
-import Adafruit_WS2801
-import Adafruit_GPIO.SPI as SPI
+
+
 
 #################### Setup
 # control panel
 DEBUG = True
 INFO = True
-WIDTH = 32
-HEIGHT = 54
+WIDTH = 30
+HEIGHT = 100
 
 # arguments handling
 ap = argparse.ArgumentParser()
@@ -24,20 +25,27 @@ PWD = os.path.dirname(os.path.realpath(__file__))       #returns path to project
 IMAGE_PATH = PWD + "/" + args["image"]
 
 # LED strip configuration
-PIXEL_COUNT = WIDTH * HEIGHT 
-PIXEL_CLOCK = 18
-PIXEL_DOUT  = 23
-pixels = Adafruit_WS2801.WS2801Pixels(PIXEL_COUNT, clk=PIXEL_CLOCK, do=PIXEL_DOUT)
-pixels.clear()
+LED_COUNT      = WIDTH*HEIGHT       # Number of LED pixels.
+LED_PIN        = 18                 # GPIO pin connected to the pixels (must support PWM!).
+LED_FREQ_HZ    = 800000             # LED signal frequency in hertz (usually 800khz)
+LED_DMA        = 5                  # DMA channel to use for generating signal (try 5)
+LED_BRIGHTNESS = 255                # Set to 0 for darkest and 255 for brightest
+LED_INVERT     = False              # True to invert the signal (when using NPN transistor level shift)
+LED_CHANNEL    = 0                  # set to '1' for GPIOs 13, 19, 41, 45 or 53
+
+strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)
+strip.begin()
+
+
 
 #################### Functions
-def draw_pixel(x, y, r, g, b):
+def draw_pixel(x, y, color):
     """Accessing a specific led , defined by x , y
     and assigning the (r,g,b) values to this led
     """
     # access the led
     i = get_pixel_number(x, y)
-    pixels.set_pixel_rgb(i, r, g, b)
+    strip.setPixelColor(i, color)
 
 def get_pixel_number(x,y):
     """maps x y values to the sequence number of pixel
@@ -47,6 +55,7 @@ def get_pixel_number(x,y):
     else:
         i = y * WIDTH - x
     return i
+
 
 
 #################### Main
@@ -83,9 +92,9 @@ if __name__ == '__main__':
     for y in range(0, HEIGHT):
         for x in range(0,WIDTH):
             r ,g ,b = rgb_im.getpixel((x,y))
-            draw_pixel(x, y, r, g, b)
+            draw_pixel(x, y, Color(r, g, b))
 
     # displaying image
-    pixels.show()
+    strip.show()
 
     exit()
