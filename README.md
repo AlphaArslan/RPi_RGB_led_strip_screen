@@ -1,5 +1,5 @@
 # RPi_RGB_led_strrip_screen
-building a screen of RGB led strips [WS2812b] , displaying Images and maybe videos
+building a screen of RGB led strips [WS2812b] & [WS2801] , displaying Images and maybe videos
 
 # primary system packages [not proved to be needed]
     1- Terminal     : " sudo apt-get update "
@@ -17,11 +17,14 @@ building a screen of RGB led strips [WS2812b] , displaying Images and maybe vide
     3  - Terminal     : " sudo reboot "
 
 # needed python libraries
-    1- pillow library, used for image handling:
-          1- Terminal : " sudo pip3 install pillow "
+1- pillow library, used for image handling:
+> sudo pip3 install pillow
 
-    2- rpi_ws281x library, used for handling LEDs:
-          2- Terminal : " sudo pip3 install rpi_ws281x "
+2- rpi_ws281x library, used for handling LEDs [WS2812b] :
+> sudo pip3 install rpi_ws281x
+
+3- library for [WS2801] :
+> sudo pip3 install adafruit-ws2801
 
 # display images
     1- go to the project folder.
