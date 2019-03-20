@@ -24,29 +24,11 @@ PWD = os.path.dirname(os.path.realpath(__file__))       #returns path to project
 IMAGE_PATH = PWD + "/" + args["image"]
 
 # LED strip configuration
-PIXEL_COUNT = WIDTH * HEIGHT 
+PIXEL_COUNT = WIDTH * HEIGHT
 PIXEL_CLOCK = 18
 PIXEL_DOUT  = 23
 pixels = Adafruit_WS2801.WS2801Pixels(PIXEL_COUNT, clk=PIXEL_CLOCK, do=PIXEL_DOUT)
 pixels.clear()
-
-#################### Functions
-def draw_pixel(x, y, r, g, b):
-    """Accessing a specific led , defined by x , y
-    and assigning the (r,g,b) values to this led
-    """
-    # access the led
-    i = get_pixel_number(x, y)
-    pixels.set_pixel_rgb(i, r, g, b)
-
-def get_pixel_number(x,y):
-    """maps x y values to the sequence number of pixel
-    """
-    if y%2 is 0:
-        i = y * WIDTH + x
-    else:
-        i = y * WIDTH - x
-    return i
 
 
 #################### Main
@@ -79,12 +61,17 @@ if __name__ == '__main__':
         print("[Debug] Accessing RGB pixels ..")
     rgb_im = im.convert('RGB')
 
-    # drawing pixels
-    for y in range(0, HEIGHT):
-        for x in range(0,WIDTH):
-            r ,g ,b = rgb_im.getpixel((x,y))
-            draw_pixel(x, y, r, g, b)
 
+    for i in range(0 , PIXEL_COUNT):
+        if (int(i/WIDTH))%2 is 0 :
+            x = i%WIDTH
+            y = int(i/WIDTH)
+        else :
+            x = WIDTH - i%WIDTH
+            y = int(i/WIDTH)
+
+        r ,g ,b = rgb_im.getpixel((x,y))
+        pixels.set_pixel_rgb(i, r, g, b)
     # displaying image
     pixels.show()
 
