@@ -40,9 +40,9 @@ if __name__ == '__main__':
     while True:
         # drawing pixels
         for i in range(0, HEIGHT * WIDTH):
-            if i < HEIGHT/3 :
+            if i/WIDTH < HEIGHT/3 :
                 pixels.set_pixel_rgb(i, 255, 0, 0)
-            elif i < HEIGHT/3 * 2 :
+            elif i/WIDTH < HEIGHT/3 * 2 :
                 pixels.set_pixel_rgb(i, 0, 255, 0)
             else :
                 pixels.set_pixel_rgb(i, 0, 0, 255)
