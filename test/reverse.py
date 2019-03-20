@@ -40,7 +40,7 @@ if __name__ == '__main__':
     while True:
         # drawing pixels
         for i in range(0, PIXEL_COUNT):
-            pixels.set_pixel_rgb(PIXEL_COUNT - i, 255, 0, 0)
+            pixels.set_pixel_rgb(PIXEL_COUNT - i -1, 255, 0, 0)
 
         # displaying image
         pixels.show()
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
         # drawing pixels
         for i in range(0, PIXEL_COUNT):
-            pixels.set_pixel_rgb(PIXEL_COUNT - i, 0, 255, 0)
+            pixels.set_pixel_rgb(PIXEL_COUNT - i -1, 0, 255, 0)
 
         # displaying image
         pixels.show()
@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
         # drawing pixels
         for i in range(0, PIXEL_COUNT):
-            pixels.set_pixel_rgb(PIXEL_COUNT - i, 0, 0, 255)
+            pixels.set_pixel_rgb(PIXEL_COUNT - i -1, 0, 0, 255)
 
         # displaying image
         pixels.show()
