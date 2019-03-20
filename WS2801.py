@@ -61,13 +61,14 @@ if __name__ == '__main__':
         print("[Debug] Accessing RGB pixels ..")
     rgb_im = im.convert('RGB')
 
+    pixels.clear()
 
     for i in range(0 , PIXEL_COUNT):
         if (int(i/WIDTH))%2 is 0 :
             x = i%WIDTH
             y = int(i/WIDTH)
         else :
-            x = WIDTH - i%WIDTH
+            x = WIDTH - i%WIDTH -1
             y = int(i/WIDTH)
 
         r ,g ,b = rgb_im.getpixel((x,y))
