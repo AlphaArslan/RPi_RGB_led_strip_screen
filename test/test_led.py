@@ -37,31 +37,32 @@ def get_pixel_number(x,y):
 
 #################### Main
 if __name__ == '__main__':
-    # drawing pixels
-    for y in range(0, HEIGHT):
-        for x in range(0,WIDTH):
-            draw_pixel(x, y, 255, 0, 0)
+    while True:
+        # drawing pixels
+        for y in range(0, HEIGHT):
+            for x in range(0,WIDTH):
+                draw_pixel(x, y, 255, 0, 0)
 
-    # displaying image
-    pixels.show()
+        # displaying image
+        pixels.show()
 
-    time.sleep(8)
-    # drawing pixels
-    for y in range(0, HEIGHT):
-        for x in range(0,WIDTH):
-            draw_pixel(x, y, 0, 255, 0)
+        time.sleep(8)
+        # drawing pixels
+        for y in range(0, HEIGHT):
+            for x in range(0,WIDTH):
+                draw_pixel(x, y, 0, 255, 0)
 
-    # displaying image
-    pixels.show()
+        # displaying image
+        pixels.show()
 
-    time.sleep(8)
+        time.sleep(8)
 
-    # drawing pixels
-    for y in range(0, HEIGHT):
-        for x in range(0,WIDTH):
-            draw_pixel(x, y, 0, 0, 255)
+        # drawing pixels
+        for y in range(0, HEIGHT):
+            for x in range(0,WIDTH):
+                draw_pixel(x, y, 0, 0, 255)
 
-    # displaying image
-    pixels.show()
+        # displaying image
+        pixels.show()
 
-    time.sleep(8)
+        time.sleep(8)
