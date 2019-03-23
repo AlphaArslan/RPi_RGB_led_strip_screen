@@ -43,11 +43,17 @@ if __name__ == '__main__':
     while True:
         # drawing pixels
         for i in range(0, PIXEL_COUNT):
-            if i%WIDTH < WIDTH/2 :
-                pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 0, 255))
-
+            if (int(i/WIDTH))%2 is 0:
+                if i%WIDTH < WIDTH/2 :
+                    pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 0, 255))
+                else:
+                    pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 255, 0))
             else:
-                pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 255, 0))
+                if i%WIDTH < WIDTH/2 :
+                    pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 255, 0))
+                else:
+                    pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 0, 255))
+
 
         # displaying image
         pixels.show()
