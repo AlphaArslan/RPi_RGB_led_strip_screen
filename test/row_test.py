@@ -37,16 +37,20 @@ def get_pixel_number(x,y):
 
 #################### Main
 if __name__ == '__main__':
+    pixels.clear()
+    pixels.show()
+
     while True:
         # drawing pixels
-        for i in range(0, int(PIXEL_COUNT/2)):
-            pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 255, 0, 0))
-
-        for i in range(int(PIXEL_COUNT/2), PIXEL_COUNT):
+        if i%WIDTH < WIDTH/2 :
             pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 0, 255))
+
+        else:
+            pixels.set_pixel(i, Adafruit_WS2801.RGB_to_color( 0, 255, 0))
 
         # displaying image
         pixels.show()
         time.sleep(8)
         pixels.clear()
+        pixels.show()
         time.sleep(4)
