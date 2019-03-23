@@ -40,27 +40,23 @@ if __name__ == '__main__':
     while True:
         # drawing pixels
         for i in range(0, HEIGHT * WIDTH):
-            if i/WIDTH < HEIGHT/3 :
-                pixels.set_pixel_rgb(i, 255, 0, 0)
-            elif i/WIDTH < HEIGHT/3 * 2 :
-                pixels.set_pixel_rgb(i, 0, 255, 0)
-            else :
-                pixels.set_pixel_rgb(i, 0, 0, 255)
+            if (i/HEIGHT)%2 is 0:
+                if i%HEIGHT < WIDTH/3 :
+                    pixels.set_pixel_rgb(i, 255, 0, 0)
+                elif i%HEIGHT < WIDTH/3 * 2 :
+                    pixels.set_pixel_rgb(i, 0, 255, 0)
+                else :
+                    pixels.set_pixel_rgb(i, 0, 0, 255)
+            else:
+                if i%HEIGHT < WIDTH/3 :
+                    pixels.set_pixel_rgb(i, 0, 0, 255)
+                elif i%HEIGHT < WIDTH/3 * 2 :
+                    pixels.set_pixel_rgb(i, 0, 255, 0)
+                else :
+                    pixels.set_pixel_rgb(i, 255, 0, 0)
 
         # displaying image
         pixels.show()
         time.sleep(8)
-
-    while True:
-        # drawing pixels
-        for i in range(0, HEIGHT * WIDTH):
-            if i%HEIGHT < WIDTH/3 :
-                pixels.set_pixel_rgb(i, 255, 0, 0)
-            elif i%HEIGHT < WIDTH/3 * 2 :
-                pixels.set_pixel_rgb(i, 0, 255, 0)
-            else :
-                pixels.set_pixel_rgb(i, 0, 0, 255)
-
-        # displaying image
-        pixels.show()
-        time.sleep(8)
+        pixels.clear()
+        time.sleep(4)
