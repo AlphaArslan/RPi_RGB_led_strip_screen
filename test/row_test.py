@@ -39,11 +39,11 @@ def get_pixel_number(x,y):
 if __name__ == '__main__':
     while True:
         # drawing pixels
-        for i in range(0, PIXEL_COUNT/2):
-            pixels.set_pixel_rgb(i, 255,0,0)
+        for i in range(0, int(PIXEL_COUNT/2)):
+            pixels.set_pixel_rgb(i, Adafruit_WS2801.RGB_to_color( 255, 0, 0))
 
-        for i in range(PIXEL_COUNT/2, PIXEL_COUNT):
-            pixels.set_pixel_rgb(i, 0,0,255)
+        for i in range(int(PIXEL_COUNT/2), PIXEL_COUNT):
+            pixels.set_pixel_rgb(i, Adafruit_WS2801.RGB_to_color( 0, 0, 255))
 
         # displaying image
         pixels.show()
