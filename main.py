@@ -64,6 +64,7 @@ if __name__ == '__main__':
     pixels.clear()
     pixels.show()
 
+    time.sleep(4)
     for i in range(0 , PIXEL_COUNT):
         if (int(i/WIDTH))%2 is 0 :
             x = i%WIDTH
@@ -75,6 +76,9 @@ if __name__ == '__main__':
         r ,g ,b = rgb_im.getpixel((x,y))
         pixels.set_pixel(i,  Adafruit_WS2801.RGB_to_color(b, r, g))
     # displaying image
+    pixels.show()
+    time.sleep(10)
+    pixels.clear()
     pixels.show()
 
     exit()
