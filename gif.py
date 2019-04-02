@@ -21,6 +21,8 @@ pixels.clear()
 def get_row_num(i):
     return int(i/WIDTH)
 
+def get_col_num(i):
+    return i%WIDTH
 
 #################### Main
 if __name__ == '__main__':
