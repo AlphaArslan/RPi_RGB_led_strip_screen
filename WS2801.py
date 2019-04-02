@@ -23,7 +23,7 @@ args = vars(ap.parse_args())
 PWD = os.path.dirname(os.path.realpath(__file__))       #returns path to project folder
 IMAGE_PATH = PWD + "/" + args["image"]
 
-# LED strip configuration
+# LED strip configuration GPIO.BCM
 PIXEL_COUNT = WIDTH * HEIGHT
 PIXEL_CLOCK = 18
 PIXEL_DOUT  = 23
